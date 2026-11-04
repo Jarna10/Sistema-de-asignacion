@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, v1]
   workflow_dispatch:
 
 permissions:
@@ -21,13 +21,33 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout main (v0.2 - versión actual)
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site_main
+
+      - name: Checkout v1 (v0.1 - versión anterior)
+        uses: actions/checkout@v4
+        with:
+          ref: v1
+          path: site_v1
+        continue-on-error: true
 
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html styles.css app.js .nojekyll _site/
+          # Desplegar versión principal (v0.2) en la raíz
+          cp site_main/index.html site_main/styles.css site_main/app.js site_main/.nojekyll _site/
+          
+          # Desplegar versión anterior en /v1/ si la rama existe
+          if [ -d "site_v1" ] && [ -f "site_v1/index.html" ]; then
+            mkdir -p _site/v1
+            cp site_v1/index.html site_v1/styles.css site_v1/app.js _site/v1/
+            if [ -f "site_v1/.nojekyll" ]; then
+              cp site_v1/.nojekyll _site/v1/
+            fi
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
