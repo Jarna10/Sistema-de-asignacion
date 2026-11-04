@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nexo, sistema de tutorÃ­as acadÃ©micas. Registro de cursos, horarios y seguimiento docente.">
-  <title>Nexo Â· TutorÃ­as acadÃ©micas</title>
+  <meta name="description" content="Nexo, sistema de tutorías académicas. Registro de cursos, horarios y seguimiento docente.">
+  <title>Nexo · Tutorías académicas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,41 +16,39 @@
       <span class="brand-mark" aria-hidden="true">N</span>
       <span class="brand-copy">
         <strong>Nexo</strong>
-        <span>TutorÃ­as acadÃ©micas</span>
+        <span>Tutorías académicas</span>
       </span>
     </a>
     <div class="header-actions">
       <span class="role-pill" id="sessionRole"></span>
       <span class="session-name" id="sessionName"></span>
-      <button class="btn btn-ghost btn-small" type="button" id="logoutBtn">Cerrar sesiÃ³n</button>
+      <button class="btn btn-ghost btn-small" type="button" id="logoutBtn">Cerrar sesión</button>
     </div>
   </header>
 
   <main>
     <section class="login-shell" id="loginView">
       <div class="login-brand">
-        <p class="eyebrow">Piloto 2026 Â· Facultad de Ciencias Matematicas</p>
-        <h1 class="display">TutorÃ­as que <em>encajan</em> con tu semana.</h1>
+        <p class="eyebrow">Piloto 2026 · Facultad de Ciencias Matemáticas</p>
+        <h1 class="display">Tutorías que <em>encajan</em> con tu semana.</h1>
         <p class="lede">Un solo lugar para declarar tus cursos, ordenar tus horarios y detectar cruces antes de que se conviertan en un problema.</p>
         <ul class="login-points">
           <li><span>01</span>Registro guiado de cursos y horarios</li>
-          <li><span>02</span>DetecciÃ³n automÃ¡tica de cruces</li>
-          <li><span>03</span>RevisiÃ³n centralizada para el profesor</li>
+          <li><span>02</span>Detección automática de cruces</li>
+          <li><span>03</span>Revisión centralizada para el profesor</li>
         </ul>
         <div class="login-meta">
           <span>Plataforma web</span>
           <span>🐈</span>
-          <span>Menos de 50 estudiantes</span>
-          <span>6 cursos piloto</span>
           <span>Demo v0.2</span>
-          <a href="v1/" class="version-badge" title="Ver versiÃ³n anterior v0.1">Ver v0.1 &rarr;</a>
+          <a href="v1/" class="version-badge" title="Ver versión anterior v0.1">Ver v0.1 &rarr;</a>
         </div>
       </div>
 
       <div class="login-panel">
         <div class="panel-head">
           <p class="eyebrow">Acceso institucional</p>
-          <h2>Inicia sesiÃ³n</h2>
+          <h2>Inicia sesión</h2>
           <p>Ingresa con las credenciales asignadas para este piloto.</p>
         </div>
         <form id="loginForm" class="form" novalidate>
@@ -59,14 +57,14 @@
             <input id="loginUser" name="username" type="text" autocomplete="username" placeholder="alumno o profesor" required>
           </label>
           <label class="field">
-            <span>ContraseÃ±a</span>
-            <input id="loginPass" name="password" type="password" autocomplete="current-password" placeholder="Tu contraseÃ±a" required>
+            <span>Contraseña</span>
+            <input id="loginPass" name="password" type="password" autocomplete="current-password" placeholder="Tu contraseña" required>
           </label>
           <p class="form-error" id="loginError" role="alert"></p>
           <button class="btn btn-primary btn-block" type="submit">Entrar al panel</button>
         </form>
         <div class="demo-creds">
-          <p class="demo-title">Credenciales de demostraciÃ³n</p>
+          <p class="demo-title">Credenciales de demostración</p>
           <div class="demo-row"><span>Estudiante</span><code>alumno / alumno123</code></div>
           <div class="demo-row"><span>Profesor</span><code>profesor / profesor123</code></div>
         </div>
@@ -78,7 +76,7 @@
         <div>
           <p class="eyebrow">Cuenta de estudiante</p>
           <h1 class="page-title">Registro de cursos y horarios</h1>
-          <p class="lede">Selecciona tus cursos, elige un horario por curso y guarda tu declaraciÃ³n. El sistema avisarÃ¡ si dos bloques se cruzan.</p>
+          <p class="lede">Selecciona tus cursos, elige un horario por curso y guarda tu declaración. El sistema avisará si dos bloques se cruzan.</p>
         </div>
         <div class="page-tag">
           <span class="tag-dot" aria-hidden="true"></span>
@@ -91,7 +89,7 @@
           <div class="card-head">
             <div>
               <p class="eyebrow">Cuestionario</p>
-              <h2>Tu semana acadÃ©mica</h2>
+              <h2>Tu semana académica</h2>
             </div>
             <span class="step-label">Paso 1 de 1</span>
           </div>
@@ -109,7 +107,7 @@
 
           <label class="field">
             <span>Observaciones <small>opcional</small></span>
-            <textarea id="studentNotes" name="notes" rows="3" placeholder="Preferencias, restricciones o informaciÃ³n que el profesor deba conocer."></textarea>
+            <textarea id="studentNotes" name="notes" rows="3" placeholder="Preferencias, restricciones o información que el profesor deba conocer."></textarea>
           </label>
 
           <div class="alert" id="studentAlert" role="alert" hidden></div>
@@ -142,7 +140,7 @@
         <div class="week-scroll">
           <div class="week-grid" id="studentWeek" aria-live="polite"></div>
         </div>
-        <p class="week-note" id="studentWeekNote">Selecciona tus cursos para ver cÃ³mo queda tu semana.</p>
+        <p class="week-note" id="studentWeekNote">Selecciona tus cursos para ver cómo queda tu semana.</p>
       </section>
     </section>
 
@@ -151,7 +149,7 @@
         <div>
           <p class="eyebrow">Cuenta de profesor</p>
           <h1 class="page-title">Elecciones del alumnado</h1>
-          <p class="lede">Revisa los cursos y horarios declarados, con bÃºsqueda y filtros. El profesor puede exportar las declaraciones en JSON o CSV.</p>
+          <p class="lede">Revisa los cursos y horarios declarados, con búsqueda y filtros. El profesor puede exportar las declaraciones en JSON o CSV.</p>
         </div>
         <div class="page-tag">
           <span class="tag-dot" aria-hidden="true"></span>
@@ -169,7 +167,7 @@
           <strong id="statCourses">0</strong>
         </article>
         <article class="stat">
-          <span>Ãšltima actualizaciÃ³n</span>
+          <span>Última actualización</span>
           <strong id="statUpdated">Sin datos</strong>
         </article>
       </div>
@@ -177,7 +175,7 @@
       <div class="toolbar" id="teacherRecords">
         <div class="toolbar-copy">
           <h2>Registros recibidos</h2>
-          <p id="teacherCount">AÃºn no hay declaraciones.</p>
+          <p id="teacherCount">Aún no hay declaraciones.</p>
         </div>
         <div class="toolbar-actions">
           <button class="btn btn-secondary" type="button" id="importTrigger">Importar JSON</button>
@@ -189,12 +187,12 @@
 
       <div class="filter-bar" role="search" aria-label="Filtrar declaraciones">
         <label class="filter-field">
-          <span class="sr-only">Buscar por estudiante, curso o cÃ³digo</span>
+          <span class="sr-only">Buscar por estudiante, curso o código</span>
           <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
             <circle cx="11" cy="11" r="6.5"></circle>
             <path d="m16 16 4 4"></path>
           </svg>
-          <input id="teacherSearch" type="search" autocomplete="off" placeholder="Buscar estudiante, curso o cÃ³digo">
+          <input id="teacherSearch" type="search" autocomplete="off" placeholder="Buscar estudiante, curso o código">
         </label>
         <label class="filter-field filter-select">
           <span class="sr-only">Filtrar por curso</span>
@@ -206,14 +204,14 @@
 
       <div class="empty-state" id="teacherEmpty">
         <span class="empty-mark" aria-hidden="true">N</span>
-        <h3>Sin declaraciones todavÃ­a</h3>
-        <p>Cuando un estudiante guarde sus elecciones en este navegador, aparecerÃ¡n aquÃ­. TambiÃ©n puedes importar un JSON exportado desde otro panel docente.</p>
+        <h3>Sin declaraciones todavía</h3>
+        <p>Cuando un estudiante guarde sus elecciones en este navegador, aparecerán aquí. También puedes importar un JSON exportado desde otro panel docente.</p>
       </div>
 
       <div class="empty-state empty-compact" id="teacherNoMatch" hidden>
         <span class="empty-mark" aria-hidden="true">?</span>
         <h3>Sin coincidencias</h3>
-        <p>Prueba con otro nombre, cÃ³digo de curso o limpia el filtro para ver todas las declaraciones.</p>
+        <p>Prueba con otro nombre, código de curso o limpia el filtro para ver todas las declaraciones.</p>
       </div>
 
       <div class="record-list" id="teacherList"></div>
@@ -221,12 +219,12 @@
   </main>
 
   <footer class="site-footer">
-    <span>Nexo Â· Sistema de tutorÃ­as acadÃ©micas</span>
-    <span>DemostraciÃ³n estÃ¡tica Â· Los datos se guardan en este navegador</span>
+    <span>Nexo · Sistema de tutorías académicas</span>
+    <span>Demostración estática · Los datos se guardan en este navegador</span>
     <span id="appVersion">Demo v0.2.0</span>
   </footer>
 
-  <nav class="tabbar" id="tabbar" aria-label="NavegaciÃ³n de la demo" hidden>
+  <nav class="tabbar" id="tabbar" aria-label="Navegación de la demo" hidden>
     <div class="tabbar-group" data-tabbar="student">
       <button class="tabbar-btn is-active" type="button" data-scroll="#enrollmentForm" aria-current="true">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">

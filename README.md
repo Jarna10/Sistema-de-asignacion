@@ -1,41 +1,41 @@
-﻿# Sistema-de-asignacion
+# Sistema-de-asignacion
 
-Sistema de tutorÃ­as universitario con programador automÃ¡tico de sesiones y tutor IA.
-Piloto: <50 usuarios, 2â€“3 cursos, web mobile-first con Astro, backend FastAPI, Docker.
+Sistema de tutorías universitario con programador automático de sesiones y tutor IA.
+Piloto: <50 usuarios, 2–3 cursos, web mobile-first con Astro, backend FastAPI, Docker.
 
-## Demo para GitHub Pages Â· v0.2
+## Demo para GitHub Pages · v0.2
 
-Sitio estÃ¡tico con login fijo, cuestionario de cursos y horarios, calendario semanal con alerta de
+Sitio estático con login fijo, cuestionario de cursos y horarios, calendario semanal con alerta de
 cruces y panel del profesor. No requiere build ni backend.
 
 Incluye:
 
-- **6 cursos piloto** (MatemÃ¡tica BÃ¡sica, CÃ¡lculo I, Ãlgebra Lineal, Complementos de la MatemÃ¡tica,
-  TeorÃ­a de NÃºmeros y ProgramaciÃ³n) con **5 horarios por curso**.
-- Horarios que se cruzan a propÃ³sito entre cursos para visualizar conflictos reales.
-- Calendario semanal siempre visible: aunque no haya cursos marcados, se dibuja la grilla vacÃ­a.
+- **6 cursos piloto** (Matemática Básica, Cálculo I, Álgebra Lineal, Complementos de la Matemática,
+  Teoría de Números y Programación) con **5 horarios por curso**.
+- Horarios que se cruzan a propósito entre cursos para visualizar conflictos reales.
+- Calendario semanal siempre visible: aunque no haya cursos marcados, se dibuja la grilla vacía.
   Al elegir, cada bloque muestra el nombre del curso y su horario; los cruces se marcan en rojo.
-- NavegaciÃ³n inferior en mÃ³vil para saltar entre cuestionario, resumen y semana.
-- Panel docente con toda la informaciÃ³n del estudiante, bÃºsqueda, filtro por curso y calendario
-  por declaraciÃ³n.
-- **JSON exclusivo del profesor**, ademÃ¡s de exportaciÃ³n CSV. El estudiante solo guarda su
-  declaraciÃ³n; no descarga archivos.
+- Navegación inferior en móvil para saltar entre cuestionario, resumen y semana.
+- Panel docente con toda la información del estudiante, búsqueda, filtro por curso y calendario
+  por declaración.
+- **JSON exclusivo del profesor**, además de exportación CSV. El estudiante solo guarda su
+  declaración; no descarga archivos.
 
-Credenciales de demostraciÃ³n:
+Credenciales de demostración:
 
-| Rol | Usuario | ContraseÃ±a |
+| Rol | Usuario | Contraseña |
 |---|---|---|
 | Estudiante | `alumno` | `alumno123` |
 | Profesor | `profesor` | `profesor123` |
 
 Los datos se guardan en `localStorage` del navegador. Para compartir declaraciones entre
 dispositivos, el profesor puede exportar el JSON de su panel e importarlo en otro navegador. El
-profesor tambiÃ©n puede exportar todas las declaraciones (o solo las del filtro activo) en JSON o CSV.
+profesor también puede exportar todas las declaraciones (o solo las del filtro activo) en JSON o CSV.
 
 La v0.2 usa claves de almacenamiento nuevas (`nexo.*.v2`), por lo que los datos de la demo anterior
-no se mezclan: la primera carga arranca con el calendario vacÃ­o.
+no se mezclan: la primera carga arranca con el calendario vacío.
 
-### Para ejecucion local
+### Ejecutar localmente
 
 Abrir `index.html` en el navegador o servir la carpeta:
 
@@ -43,15 +43,17 @@ Abrir `index.html` en el navegador o servir la carpeta:
 python -m http.server 8080
 ```
 
-### GitHub Pages
+### Publicar en GitHub Pages
 
-`https://<usuario>.github.io/Sistema-de-asignacion/`.
+El workflow `.github/workflows/pages.yml` despliega el sitio en cada push a `main`.
+En GitHub, configurar **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+La página quedará en `https://<usuario>.github.io/Sistema-de-asignacion/`.
 
 ### Archivos
 
 - `index.html`: estructura y vistas.
-- `styles.css`: diseÃ±o mobile-first, calendario semanal y navegaciÃ³n inferior.
-- `app.js`: autenticaciÃ³n, persistencia, validaciÃ³n de cruces, calendario, layout de
+- `styles.css`: diseño mobile-first, calendario semanal y navegación inferior.
+- `app.js`: autenticación, persistencia, validación de cruces, calendario, layout de
   superposiciones, filtros e import/export.
 - `CHANGELOG.md`: historial de versiones de la demo.
 - `structure_0.1.md`: arquitectura, modelo de datos y backlog del sistema completo.
