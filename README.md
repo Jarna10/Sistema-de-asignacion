@@ -27,7 +27,7 @@ Los datos se guardan en `localStorage` del navegador. Para compartir una declara
 dispositivos, el estudiante descarga el JSON y el profesor lo importa desde su panel. El profesor
 también puede exportar todas las declaraciones (o solo las del filtro activo) en JSON o CSV.
 
-### Ejecutar localmente
+### Para ejecucion local
 
 Abrir `index.html` en el navegador o servir la carpeta:
 
@@ -35,11 +35,9 @@ Abrir `index.html` en el navegador o servir la carpeta:
 python -m http.server 8080
 ```
 
-### Publicar en GitHub Pages
+### GitHub Pages
 
-El workflow `.github/workflows/pages.yml` despliega el sitio en cada push a `main`.
-En GitHub, configurar **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-La página quedará en `https://<usuario>.github.io/Sistema-de-asignacion/`.
+`https://<usuario>.github.io/Sistema-de-asignacion/`.
 
 ### Archivos
 
