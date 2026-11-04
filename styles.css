@@ -271,7 +271,8 @@ main {
   margin-top: 28px;
 }
 
-.login-meta span {
+.login-meta span,
+.login-meta .version-badge {
   padding: 6px 11px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -281,6 +282,20 @@ main {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.login-meta .version-badge {
+  color: var(--primary);
+  border-color: rgba(30, 77, 63, 0.25);
+  background: #ffffff;
+}
+
+.login-meta .version-badge:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
 }
 
 .login-panel {
