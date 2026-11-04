@@ -271,7 +271,8 @@ main {
   margin-top: 28px;
 }
 
-.login-meta span {
+.login-meta span,
+.login-meta .version-badge {
   padding: 6px 11px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -281,6 +282,20 @@ main {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.login-meta .version-badge {
+  color: var(--primary);
+  border-color: rgba(30, 77, 63, 0.25);
+  background: #ffffff;
+}
+
+.login-meta .version-badge:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
 }
 
 .login-panel {
@@ -1193,22 +1208,10 @@ main {
 
 .week-grid {
   display: grid;
-  grid-template-columns: 46px repeat(5, minmax(78px, 1fr));
+  grid-template-columns: 46px repeat(5, minmax(96px, 1fr));
   gap: 0 6px;
-  min-width: 560px;
+  min-width: 860px;
   padding-top: 4px;
-}
-
-.week-grid.is-empty {
-  display: block;
-  min-width: 0;
-}
-
-.week-empty {
-  padding: 26px 0;
-  color: var(--muted);
-  font-size: 13px;
-  text-align: center;
 }
 
 .week-day-head {
@@ -1278,17 +1281,21 @@ main {
 }
 
 .week-block strong {
+  display: -webkit-box;
   overflow: hidden;
   font-size: 10.5px;
   font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .week-block span {
   overflow: hidden;
-  font-size: 9.5px;
+  font-size: 9px;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
   opacity: 0.8;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1664,7 +1671,7 @@ main {
   }
 
   .week-grid {
-    min-width: 520px;
+    min-width: 760px;
   }
 
   .filter-field input {

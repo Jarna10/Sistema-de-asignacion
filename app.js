@@ -1,9 +1,11 @@
 const STORAGE = {
-  session: "nexo.session.v1",
-  submissions: "nexo.submissions.v1",
-  draft: "nexo.draft.v1",
-  last: "nexo.lastSubmission.v1"
+  session: "nexo.session.v2",
+  submissions: "nexo.submissions.v2",
+  draft: "nexo.draft.v2",
+  last: "nexo.lastSubmission.v2"
 };
+
+const APP_VERSION = "0.2.0";
 
 const USERS = {
   alumno: { password: "alumno123", role: "student", displayName: "Camila Rojas" },
@@ -12,13 +14,68 @@ const USERS = {
 
 const COURSES = [
   {
+    id: "matematica",
+    code: "MAT-100",
+    name: "Matemática Básica",
+    credits: 6,
+    options: [
+      { id: "matematica-a", label: "Lun y Mié · 08:00–09:30", days: [1, 3], start: "08:00", end: "09:30" },
+      { id: "matematica-b", label: "Mar y Jue · 08:00–09:30", days: [2, 4], start: "08:00", end: "09:30" },
+      { id: "matematica-c", label: "Lun y Mié · 10:00–11:30", days: [1, 3], start: "10:00", end: "11:30" },
+      { id: "matematica-d", label: "Mar y Jue · 12:00–13:30", days: [2, 4], start: "12:00", end: "13:30" },
+      { id: "matematica-e", label: "Vie · 10:00–11:30", days: [5], start: "10:00", end: "11:30" }
+    ]
+  },
+  {
     id: "calculo",
     code: "MAT-101",
     name: "Cálculo I",
     credits: 6,
     options: [
       { id: "calculo-a", label: "Lun y Mié · 08:00–09:30", days: [1, 3], start: "08:00", end: "09:30" },
-      { id: "calculo-b", label: "Mar y Jue · 10:00–11:30", days: [2, 4], start: "10:00", end: "11:30" }
+      { id: "calculo-b", label: "Mar y Jue · 10:00–11:30", days: [2, 4], start: "10:00", end: "11:30" },
+      { id: "calculo-c", label: "Lun y Mié · 11:00–12:30", days: [1, 3], start: "11:00", end: "12:30" },
+      { id: "calculo-d", label: "Mar y Jue · 14:00–15:30", days: [2, 4], start: "14:00", end: "15:30" },
+      { id: "calculo-e", label: "Vie · 12:00–13:30", days: [5], start: "12:00", end: "13:30" }
+    ]
+  },
+  {
+    id: "algebra",
+    code: "MAT-201",
+    name: "Álgebra Lineal",
+    credits: 6,
+    options: [
+      { id: "algebra-a", label: "Lun y Mié · 09:00–10:30", days: [1, 3], start: "09:00", end: "10:30" },
+      { id: "algebra-b", label: "Mar y Jue · 08:00–09:30", days: [2, 4], start: "08:00", end: "09:30" },
+      { id: "algebra-c", label: "Lun y Mié · 12:00–13:30", days: [1, 3], start: "12:00", end: "13:30" },
+      { id: "algebra-d", label: "Mar y Jue · 14:00–15:30", days: [2, 4], start: "14:00", end: "15:30" },
+      { id: "algebra-e", label: "Vie · 11:00–12:30", days: [5], start: "11:00", end: "12:30" }
+    ]
+  },
+  {
+    id: "complementos",
+    code: "MAT-210",
+    name: "Complementos de la Matemática",
+    credits: 6,
+    options: [
+      { id: "complementos-a", label: "Lun y Mié · 10:00–11:30", days: [1, 3], start: "10:00", end: "11:30" },
+      { id: "complementos-b", label: "Mar y Jue · 11:00–12:30", days: [2, 4], start: "11:00", end: "12:30" },
+      { id: "complementos-c", label: "Lun y Mié · 14:00–15:30", days: [1, 3], start: "14:00", end: "15:30" },
+      { id: "complementos-d", label: "Mar y Jue · 12:00–13:30", days: [2, 4], start: "12:00", end: "13:30" },
+      { id: "complementos-e", label: "Vie · 08:00–09:30", days: [5], start: "08:00", end: "09:30" }
+    ]
+  },
+  {
+    id: "numeros",
+    code: "MAT-220",
+    name: "Teoría de Números",
+    credits: 6,
+    options: [
+      { id: "numeros-a", label: "Lun y Mié · 11:00–12:30", days: [1, 3], start: "11:00", end: "12:30" },
+      { id: "numeros-b", label: "Mar y Jue · 09:00–10:30", days: [2, 4], start: "09:00", end: "10:30" },
+      { id: "numeros-c", label: "Lun y Mié · 14:00–15:30", days: [1, 3], start: "14:00", end: "15:30" },
+      { id: "numeros-d", label: "Mar y Jue · 10:00–11:30", days: [2, 4], start: "10:00", end: "11:30" },
+      { id: "numeros-e", label: "Vie · 09:00–10:30", days: [5], start: "09:00", end: "10:30" }
     ]
   },
   {
@@ -27,26 +84,22 @@ const COURSES = [
     name: "Programación",
     credits: 6,
     options: [
-      { id: "programacion-a", label: "Lun y Mié · 09:00–10:30", days: [1, 3], start: "09:00", end: "10:30" },
-      { id: "programacion-b", label: "Mar y Jue · 14:00–15:30", days: [2, 4], start: "14:00", end: "15:30" }
-    ]
-  },
-  {
-    id: "fisica",
-    code: "FIS-150",
-    name: "Física I",
-    credits: 6,
-    options: [
-      { id: "fisica-a", label: "Lun y Mié · 11:00–12:30", days: [1, 3], start: "11:00", end: "12:30" },
-      { id: "fisica-b", label: "Mar y Jue · 10:00–11:30", days: [2, 4], start: "10:00", end: "11:30" }
+      { id: "programacion-a", label: "Lun y Mié · 08:00–09:30", days: [1, 3], start: "08:00", end: "09:30" },
+      { id: "programacion-b", label: "Mar y Jue · 14:00–15:30", days: [2, 4], start: "14:00", end: "15:30" },
+      { id: "programacion-c", label: "Lun y Mié · 12:00–13:30", days: [1, 3], start: "12:00", end: "13:30" },
+      { id: "programacion-d", label: "Mar y Jue · 12:00–13:30", days: [2, 4], start: "12:00", end: "13:30" },
+      { id: "programacion-e", label: "Vie · 14:00–15:30", days: [5], start: "14:00", end: "15:30" }
     ]
   }
 ];
 
 const COURSE_THEME = {
-  calculo: { ink: "#1f5c4a", soft: "#e3efe9" },
-  programacion: { ink: "#8a641c", soft: "#f7efdd" },
-  fisica: { ink: "#35507a", soft: "#e6ecf5" }
+  matematica: { ink: "#1f5c4a", soft: "#e3efe9" },
+  calculo: { ink: "#8a641c", soft: "#f7efdd" },
+  algebra: { ink: "#35507a", soft: "#e6ecf5" },
+  complementos: { ink: "#5b4a7a", soft: "#ece8f5" },
+  numeros: { ink: "#2f6a6a", soft: "#e2f0ef" },
+  programacion: { ink: "#8a4b2c", soft: "#f6e9e1" }
 };
 
 const DEFAULT_THEME = { ink: "#39433e", soft: "#efede6" };
@@ -236,18 +289,54 @@ function blocksForSubmission(submission) {
   });
 }
 
+function layoutDayBlocks(dayBlocks) {
+  const items = [];
+  let cluster = [];
+  let clusterEnd = -1;
+
+  const flush = () => {
+    if (!cluster.length) {
+      return;
+    }
+    const laneEnds = [];
+    cluster.forEach((item) => {
+      const start = toMinutes(item.block.start);
+      let lane = laneEnds.findIndex((end) => end <= start);
+      if (lane === -1) {
+        lane = laneEnds.length;
+        laneEnds.push(0);
+      }
+      laneEnds[lane] = toMinutes(item.block.end);
+      item.lane = lane;
+    });
+    cluster.forEach((item) => {
+      item.lanes = laneEnds.length;
+      items.push(item);
+    });
+    cluster = [];
+  };
+
+  dayBlocks.forEach((block) => {
+    const start = toMinutes(block.start);
+    if (cluster.length && start >= clusterEnd) {
+      flush();
+    }
+    cluster.push({ block, lane: 0, lanes: 1 });
+    clusterEnd = Math.max(clusterEnd, toMinutes(block.end));
+    if (cluster.length === 1) {
+      clusterEnd = toMinutes(block.end);
+    }
+  });
+  flush();
+
+  return items;
+}
+
 function renderWeek(container, blocks, { compact = false } = {}) {
   if (!container) {
     return;
   }
 
-  if (!blocks.length) {
-    container.classList.add("is-empty");
-    container.innerHTML = `<p class="week-empty">Aún no hay horarios para mostrar.</p>`;
-    return;
-  }
-
-  container.classList.remove("is-empty");
   const hourHeight = compact ? 30 : HOUR_HEIGHT;
   const totalHeight = ((WEEK_END_MIN - WEEK_START_MIN) / 60) * hourHeight;
   const conflicts = conflictKeys(blocks);
@@ -270,22 +359,10 @@ function renderWeek(container, blocks, { compact = false } = {}) {
     const day = index + 1;
     const dayBlocks = blocks
       .filter((block) => block.day === day)
-      .sort((a, b) => toMinutes(a.start) - toMinutes(b.start));
+      .sort((a, b) => toMinutes(a.start) - toMinutes(b.start) || toMinutes(b.end) - toMinutes(a.end));
 
-    const rendered = dayBlocks
-      .map((block, blockIndex) => {
-        const overlapping = dayBlocks.filter(
-          (other, otherIndex) => otherIndex !== blockIndex && blocksOverlap(block, other)
-        );
-        const lane = overlapping.some((other) => {
-          const otherIndex = dayBlocks.indexOf(other);
-          return (
-            toMinutes(other.start) < toMinutes(block.start) ||
-            (other.start === block.start && otherIndex < blockIndex)
-          );
-        })
-          ? 1
-          : 0;
+    const rendered = layoutDayBlocks(dayBlocks)
+      .map(({ block, lane, lanes }) => {
         const hasConflict = conflicts.has(blockKey(block));
         const top = ((toMinutes(block.start) - WEEK_START_MIN) / 60) * hourHeight;
         const height = Math.max(
@@ -293,8 +370,8 @@ function renderWeek(container, blocks, { compact = false } = {}) {
           compact ? 20 : 26
         );
         const theme = themeFor(block.courseId);
-        const width = overlapping.length ? "calc(50% - 2px)" : "calc(100% - 4px)";
-        const left = overlapping.length ? (lane ? "calc(50% + 1px)" : "1px") : "2px";
+        const width = lanes > 1 ? `calc(${100 / lanes}% - 3px)` : "calc(100% - 4px)";
+        const left = lanes > 1 ? `calc(${(lane * 100) / lanes}% + 1px)` : "2px";
 
         return `<div class="week-block${hasConflict ? " is-conflict" : ""}${compact ? " is-compact" : ""}" style="top:${top}px;height:${height}px;width:${width};left:${left};--block-ink:${theme.ink};--block-soft:${theme.soft}" title="${escapeHtml(`${block.name} · ${block.start}–${block.end}`)}">
           <strong>${escapeHtml(compact ? block.code || block.name : block.name)}</strong>
@@ -348,7 +425,7 @@ function renderStudentWeek() {
     ? "Selecciona tus cursos y horarios para ver cómo queda tu semana."
     : conflicts
       ? "Hay cruces de horario: los bloques en rojo se superponen. Ajusta uno de los ramos para resolverlos."
-      : "Sin cruces: tu semana está ordenada. Puedes guardar o descargar tu declaración.";
+      : "Sin cruces: tu semana está ordenada. Puedes guardar tu declaración para que el profesor la revise.";
 }
 
 function getSubmissions() {
@@ -612,12 +689,10 @@ function renderStudentSummary() {
   const container = $("#studentSummary");
   const status = $("#summaryStatus");
   const typedName = $("#studentName").value.trim();
-  const submissions = getSubmissions();
-  const lastId = safeGet(STORAGE.last, null);
-  const submission =
-    (typedName && submissions.find((item) => normalize(item.studentName) === normalize(typedName))) ||
-    submissions.find((item) => item.id === lastId) ||
-    submissions[0];
+  const submissions = typedName ? getSubmissions() : [];
+  const submission = typedName
+    ? submissions.find((item) => normalize(item.studentName) === normalize(typedName))
+    : null;
 
   if (!submission) {
     status.hidden = true;
@@ -1078,21 +1153,9 @@ function bindStudent() {
     alert.className = "alert is-success";
     alert.innerHTML = `<div><strong>Elecciones guardadas.</strong> ${escapeHtml(
       submission.studentName
-    )}, tu registro quedó disponible para el profesor. Puedes descargar el JSON o modificar tu selección.</div>`;
+    )}, tu registro quedó disponible para el profesor. Puedes modificar tu selección cuando quieras.</div>`;
     renderStudentSummary();
     showToast("Elecciones guardadas correctamente.");
-  });
-
-  $("#downloadStudent").addEventListener("click", () => {
-    const result = collectStudentData();
-    if (renderValidation(result)) {
-      showToast("Corrige el formulario antes de descargar.", true);
-      return;
-    }
-    const submission = buildSubmission(result);
-    const filename = `elecciones-${normalize(submission.studentName).replace(/\s+/g, "-") || "estudiante"}.json`;
-    downloadJson(filename, submission);
-    showToast("Archivo JSON generado.");
   });
 
   $("#studentName").addEventListener("change", renderStudentSummary);
@@ -1166,6 +1229,11 @@ function bindLogout() {
 }
 
 function init() {
+  const versionNode = $("#appVersion");
+  if (versionNode) {
+    versionNode.innerHTML = `Demo v${APP_VERSION} · <a href="v1/" style="color: inherit; text-decoration: underline;" title="Ir a la versión anterior v0.1">Ver versión anterior (v0.1)</a>`;
+  }
+
   renderCourseFields();
   initTeacherFilters();
   setupTabbar();
